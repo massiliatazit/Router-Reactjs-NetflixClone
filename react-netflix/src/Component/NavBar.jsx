@@ -6,6 +6,7 @@ import giftIcon from "../images/giftIcon.png";
 import bell from "../images/bell.png";
 import user from "../images/user.png";
 import SearchBox from "../Components/SearchBox";
+import { Link, withRouter } from "react-router-dom";
 class NavBar extends React.Component {
   state = {
     isSearch: false,
@@ -13,7 +14,9 @@ class NavBar extends React.Component {
   };
 
   toggleSearch = () => {
-    this.state.isSearch ? this.setState({ isSearch: false }) : this.setState({ isSearch: true });
+    this.state.isSearch
+      ? this.setState({ isSearch: false })
+      : this.setState({ isSearch: true });
   };
 
   setInputValue = (e) => {
@@ -33,15 +36,37 @@ class NavBar extends React.Component {
           }}
         >
           <Navbar.Brand href="#home">
-            <img src={netflixlogo} width="auto" height="33px" className="mb-0 ml-4" alt="logo" />
+            <img
+              src={netflixlogo}
+              width="auto"
+              height="33px"
+              className="mb-0 ml-4"
+              alt="logo"
+            />
           </Navbar.Brand>
           <Nav className="mr-auto mb-0">
             <Nav.Link style={{ color: "white" }}>Home</Nav.Link>
-            <Nav.Link style={{ color: "white" }}>Tv Shows</Nav.Link>
+            <Link to="/tvshows">
+              <div
+                style={{ color: "white" }}
+                className={
+                  this.props.location.pathname === "/tvshows"
+                    ? "nav-link selected"
+                    : "nav-link"
+                }
+              >
+                Tv Shows
+              </div>
+            </Link>
             <Nav.Link style={{ color: "white" }}>Recently Added</Nav.Link>
             <Nav.Link style={{ color: "white" }}>Recently Added</Nav.Link>
           </Nav>
-          <Form inline onMouseLeave={this.state.searchInput.length === 0 && this.toggleSearch}>
+          <Form
+            inline
+            onMouseLeave={
+              this.state.searchInput.length === 0 && this.toggleSearch
+            }
+          >
             <img
               style={{
                 height: "20px",
@@ -61,8 +86,14 @@ class NavBar extends React.Component {
               onChange={this.setInputValue}
               value={this.state.searchInput}
             />
-            <Nav.Link style={{ color: "white", fontSize: "0.8rem" }}>KIDS</Nav.Link>
-            <img style={{ height: "20px", marginRight: "20px" }} src={giftIcon} alt="gift-icon"></img>
+            <Nav.Link style={{ color: "white", fontSize: "0.8rem" }}>
+              KIDS
+            </Nav.Link>
+            <img
+              style={{ height: "20px", marginRight: "20px" }}
+              src={giftIcon}
+              alt="gift-icon"
+            ></img>
           </Form>
           <img
             style={{
@@ -83,10 +114,13 @@ class NavBar extends React.Component {
             alt="user-icon"
           ></img>
         </Navbar>
-        <SearchBox isSearchOpen={this.state.isSearch} searchInput={this.state.searchInput} />
+        <SearchBox
+          isSearchOpen={this.state.isSearch}
+          searchInput={this.state.searchInput}
+        />
       </>
     );
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -11,6 +11,7 @@ class MovieRow extends React.Component {
 
   render() {
     const { title, movieData, isTall } = this.props;
+    // console.log("see id", movieData[0].imdbID);
     return (
       <div>
         <h2>{title}</h2>
@@ -24,6 +25,7 @@ class MovieRow extends React.Component {
               image={e.Poster}
               category={title}
               isTall={isTall}
+              {...this.props}
             />
           ))}
         </div>

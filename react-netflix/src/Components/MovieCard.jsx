@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import CommentArea from "./CommentArea";
+import CommentIcon from "@material-ui/icons/Comment";
 
 class MovieCard extends React.Component {
   state = {
-    elementId: this.props.movieId,
+    movieId: this.props.movieId,
     category: this.props.category,
     title: this.props.title,
     description: this.props.description,
@@ -20,12 +21,21 @@ class MovieCard extends React.Component {
   };
 
   render() {
-    const { title, description, image, category, isTall } = this.props;
+    const { title, description, image, category, isTall, movieId } = this.props;
+    // console.log(movieId);
 
     return (
       <>
-        <div className={isTall ? "show-wrapper show-wrapper-lg mr-2 " : "show-wrapper mr-2"}>
-          <img className={isTall ? "show-img" : "show-img img-shift"} src={image} alt="movie-poster" />
+        <div
+          className={
+            isTall ? "show-wrapper show-wrapper-lg mr-2 " : "show-wrapper mr-2"
+          }
+        >
+          <img
+            className={isTall ? "show-img" : "show-img img-shift"}
+            src={image}
+            alt="movie-poster"
+          />
           <div
             className={
               isTall
@@ -42,6 +52,10 @@ class MovieCard extends React.Component {
             <button onClick={() => this.openModal(title)}>
               <i className="fas fa-play pl-1 pr-2 py-2"></i>PLAY
             </button>
+            <CommentIcon
+              className="commentIcon"
+              onClick={() => this.props.history.push("/details/" + movieId)}
+            />
           </div>
         </div>
 

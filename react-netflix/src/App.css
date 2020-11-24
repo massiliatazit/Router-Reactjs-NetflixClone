@@ -156,6 +156,17 @@ h6 {
 .show-content-lg button:hover {
   background-color: #a80e10;
 }
+.commentIcon{
+ color: #fff;
+ position: absolute;
+ margin-bottom: 5%;
+ margin-right: 5%;
+ bottom: 0;
+ right: 0;
+ cursor: pointer;
+
+  
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -342,4 +353,9 @@ html {
 
 .navbar input {
   color: #fff !important;
+}
+/* Details of Movies Show */
+.Movietile{
+  color:white;
+ 
 }

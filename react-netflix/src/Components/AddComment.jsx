@@ -21,15 +21,18 @@ class AddComment extends React.Component {
   submitComment = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
-        method: "POST",
-        body: JSON.stringify(this.state.comment),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmI2OGEwNjk4MzViMDAwMTc1ODRmMzMiLCJpYXQiOjE2MDU3OTg0MDcsImV4cCI6MTYwNzAwODAwN30.YMFEHuLKmsTiRw_58rtTkNg5n_1jZGZdmOubN1Oo9O0",
-        },
-      });
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/comments/`,
+        {
+          method: "POST",
+          body: JSON.stringify(this.state.comment),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmI2OGEwNjk4MzViMDAwMTc1ODRmMzMiLCJpYXQiOjE2MDU3OTg0MDcsImV4cCI6MTYwNzAwODAwN30.YMFEHuLKmsTiRw_58rtTkNg5n_1jZGZdmOubN1Oo9O0",
+          },
+        }
+      );
       if (response.ok) {
         this.props.fetchComments();
         this.setState({
@@ -95,7 +98,12 @@ class AddComment extends React.Component {
                   <option>4</option>
                   <option>5</option>
                 </Form.Control>
-                <Button type="sumbit" variant="success" value="Submit" className="mt-2">
+                <Button
+                  type="sumbit"
+                  variant="success"
+                  value="Submit"
+                  className="mt-2"
+                >
                   Submit{" "}
                 </Button>
               </Form.Group>

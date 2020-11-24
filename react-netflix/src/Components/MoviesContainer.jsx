@@ -64,7 +64,9 @@ class MoviesContainer extends React.Component {
 
   fetchMovieByID = async (id) => {
     try {
-      let response = await fetch(`http://www.omdbapi.com/?apikey=925b91e7&i=${id}`);
+      let response = await fetch(
+        `http://www.omdbapi.com/?apikey=925b91e7&i=${id}`
+      );
       let data = await response.json();
       return data;
     } catch (err) {
@@ -76,9 +78,27 @@ class MoviesContainer extends React.Component {
     return (
       <div>
         <Container fluid className="my-5">
-          <MovieRow key={3} title="Netflix Originals" movieData={this.state.originalNetflix} isTall={true} />
-          <MovieRow key={1} title="Trending Now" movieData={this.state.trendingMovies} isTall={false} />
-          <MovieRow key={2} title="New Releases" movieData={this.state.newMovies} isTall={false} />
+          <MovieRow
+            key={3}
+            title="Netflix Originals"
+            movieData={this.state.originalNetflix}
+            isTall={true}
+            {...this.props}
+          />
+          <MovieRow
+            key={1}
+            title="Trending Now"
+            movieData={this.state.trendingMovies}
+            isTall={false}
+            {...this.props}
+          />
+          <MovieRow
+            key={2}
+            title="New Releases"
+            movieData={this.state.newMovies}
+            isTall={false}
+            {...this.props}
+          />
         </Container>
       </div>
     );
