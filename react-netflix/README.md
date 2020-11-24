@@ -1,0 +1,141 @@
+Netflix, React Edition
+
+      In this exercise you are gonna implement a ReactJS version of the Netflix
+      home web interface.
+
+        API INFO:
+
+        Register to http://www.omdbapi.com/
+
+        Once registered, you'll receive via email an api key.
+        The API has a search method:
+
+        http://www.omdbapi.com/?apikey=[YOUR API KEY HERE]&s=harry%20potter
+
+        This search returns an object like this:
+
+        {
+        "Search": [
+            {
+                "Title": "Harry Potter and the Deathly Hallows: Part 2",
+                "Year": "2011",
+                "imdbID": "tt1201607",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Sorcerer's Stone",
+                "Year": "2001",
+                "imdbID": "tt0241527",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Chamber of Secrets",
+                "Year": "2002",
+                "imdbID": "tt0295297",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Prisoner of Azkaban",
+                "Year": "2004",
+                "imdbID": "tt0304141",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTY4NTIwODg0N15BMl5BanBnXkFtZTcwOTc0MjEzMw@@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Goblet of Fire",
+                "Year": "2005",
+                "imdbID": "tt0330373",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTI1NDMyMjExOF5BMl5BanBnXkFtZTcwOTc4MjQzMQ@@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Order of the Phoenix",
+                "Year": "2007",
+                "imdbID": "tt0373889",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTM0NTczMTUzOV5BMl5BanBnXkFtZTYwMzIxNTg3._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Deathly Hallows: Part 1",
+                "Year": "2010",
+                "imdbID": "tt0926084",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTQ2OTE1Mjk0N15BMl5BanBnXkFtZTcwODE3MDAwNA@@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Half-Blood Prince",
+                "Year": "2009",
+                "imdbID": "tt0417741",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BNzU3NDg4NTAyNV5BMl5BanBnXkFtZTcwOTg2ODg1Mg@@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Chamber of Secrets",
+                "Year": "2002",
+                "imdbID": "tt0304140",
+                "Type": "game",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BNTM4NzQ2NjA4NV5BMl5BanBnXkFtZTgwODAwMjE4MDE@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Harry Potter and the Forbidden Journey",
+                "Year": "2010",
+                "imdbID": "tt1756545",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BNDM0YzMyNGUtMTU1Yy00OTE2LWE5NzYtZDZhMTBmN2RkNjg3XkEyXkFqcGdeQXVyMzU5NjU1MDA@._V1_SX300.jpg"
+            }
+        ],
+        "totalResults": "80",
+        "Response": "True"
+      }
+
+      !!!PLEASE NOTE THAT THE ARRAY YOU ARE LOOKING FOR IS INTO THE .Search PROPERTY OF THE RESPONSE!!!
+
+
+
+        You have a CRUD endpoint for comments on:
+
+        https://striveschool-api.herokuapp.com/api/comments/
+
+        This means you can GET, DELETE, POST, PUT data from there.
+
+        The Comment structure is this:
+
+        {
+          "comment": "A good movie but definitely I don't like many parts of the plot",
+          "rate": 3,
+          "elementId": "tt1756545"
+        }
+
+        Where:
+        - comment is the comment inserted by the user
+        - rate is a value between 1 and 5
+        - elementId is the imdbID of the movie / serie
+
+
+
+
+
+
+        Create the main page starting from one of your team's Netflix project
+        with all the styles / search bar etc
+
+
+        Create, using components, the several "galleries" for the movies (at
+        least 3 galleries with 3 sagas you like (es.: Harry Potter, Lord of the
+        Rings etc))
+
+
+        Implement a working search bar that triggers the APIs and propose the
+        result.
+
+      Implement loaders, validators and error messages for the App
+      [EXTRA] For the search, implement empty state and loaders
+      [EXTRA] Add, when clicking on a movie, the Comment list for it
+
+        [EXTRA] From the comment list, let the user add a comment to every movie
+
+
+      [EXTRA] Sort every AJAX response per Year (from newer to older)
