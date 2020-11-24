@@ -45,7 +45,11 @@ class NavBar extends React.Component {
             />
           </Navbar.Brand>
           <Nav className="mr-auto mb-0">
-            <Nav.Link style={{ color: "white" }}>Home</Nav.Link>
+            <Link to="/">
+              <div style={{ color: "white" }} className="nav-link">
+                Home
+              </div>
+            </Link>
             <Link to="/tvshows">
               <div
                 style={{ color: "white" }}

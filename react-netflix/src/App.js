@@ -10,6 +10,7 @@ import ShowCommentDetails from "./Components/ShowCommentDetails"
 import TvShow from"./Components/TvShow"
 
 class App extends React.Component {
+ 
   render() {
     return (
       <>
@@ -22,13 +23,7 @@ class App extends React.Component {
        render={(props)=><MoviesContainer {...props} />} 
        />
        <Route path="/details/:id" component={ShowCommentDetails} />
-       <Route
-            path="/tvshows"
-            exact
-            render={(props) => (
-              <TvShow searchQuery={this.state.query} {...props} />
-            )}
-          />
+      <TvShow/>
         <Footer />
         </Router>
       </>
