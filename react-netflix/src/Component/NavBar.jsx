@@ -62,6 +62,18 @@ class NavBar extends React.Component {
                 Tv Shows
               </div>
             </Link>
+            <Link to="/registration">
+              <div
+                style={{ color: "white" }}
+                className={
+                  this.props.location.pathname === "/registration"
+                    ? "nav-link selected"
+                    : "nav-link"
+                }
+              >
+                Registration
+              </div>
+            </Link>
             <Nav.Link style={{ color: "white" }}>Recently Added</Nav.Link>
             <Nav.Link style={{ color: "white" }}>Recently Added</Nav.Link>
           </Nav>
